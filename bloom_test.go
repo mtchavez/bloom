@@ -16,7 +16,7 @@ func Test_NewFilter(t *testing.T) {
 	}
 }
 
-func Test_OptimalK_ZeroN(t *testing.T) {
+func Test_OptimalK_zeroN(t *testing.T) {
 	k := OptimalK(1000, 0)
 	if k != 0 {
 		t.Errorf("Expected k to be zero if n is <= 0")
@@ -32,5 +32,12 @@ func Test_OptimalK(t *testing.T) {
 	k = OptimalK(1e12, 1e11)
 	if k != 7 {
 		t.Errorf("Expected k to be 7 but got %+v", k)
+	}
+}
+
+func Test_FalsePositiveProb_zeroN(t *testing.T) {
+	prob := FalsePositiveProb(64, 1e9)
+	if prob != 0.9999999692510076 {
+		t.Errorf("Expected prob to be 0.99 but got %+v", prob)
 	}
 }

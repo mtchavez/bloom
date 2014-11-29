@@ -30,3 +30,10 @@ func OptimalK(m, n uint64) uint64 {
 	}
 	return uint64(math.Ceil((float64(m) / float64(n)) * math.Log(2)))
 }
+
+func FalsePositiveProb(m, n uint64) float64 {
+	if n <= 0 {
+		return 0
+	}
+	return math.Pow(math.E, -(float64(m) / (float64(n)) * math.Pow(math.Log(2), 2)))
+}
