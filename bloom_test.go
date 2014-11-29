@@ -41,3 +41,10 @@ func Test_FalsePositiveProb_zeroN(t *testing.T) {
 		t.Errorf("Expected prob to be 0.99 but got %+v", prob)
 	}
 }
+func Test_MForFalsePositiveProb(t *testing.T) {
+	m := MForFalsePositiveProb(1e12, 0.000009)
+	var expected uint64 = 24181940052532
+	if m != expected {
+		t.Errorf("Expected m to be but got %+v", m)
+	}
+}

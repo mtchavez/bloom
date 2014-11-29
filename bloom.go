@@ -37,3 +37,7 @@ func FalsePositiveProb(m, n uint64) float64 {
 	}
 	return math.Pow(math.E, -(float64(m) / (float64(n)) * math.Pow(math.Log(2), 2)))
 }
+
+func MForFalsePositiveProb(n uint64, p float64) uint64 {
+	return uint64(math.Ceil(-((float64(n) * math.Log(p)) / math.Pow(math.Log(2), 2))))
+}
