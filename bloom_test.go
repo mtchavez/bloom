@@ -50,7 +50,7 @@ func Test_MForFalsePositiveProb(t *testing.T) {
 }
 
 func TestCheck_notFound(t *testing.T) {
-	f := NewFilter(4, 1e12)
+	f := NewFilter(4, 1e9)
 	exists := f.Check([]byte("3aed5f9ot0da"))
 	if exists {
 		t.Errorf("Expected to not find data in filter")
