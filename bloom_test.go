@@ -48,3 +48,21 @@ func Test_MForFalsePositiveProb(t *testing.T) {
 		t.Errorf("Expected m to be but got %+v", m)
 	}
 }
+
+func TestCheck_notFound(t *testing.T) {
+	f := NewFilter(4, 1e12)
+	exists := f.Check([]byte("3aed5f9ot0da"))
+	if exists {
+		t.Errorf("Expected to not find data in filter")
+	}
+}
+
+func TestCheck_found(t *testing.T) {
+	f := NewFilter(4, 1e9)
+	data := []byte("3aed5f9ot0da")
+	f.Add(data)
+	exists := f.Check(data)
+	if !exists {
+		t.Errorf("Expected %+v to be in filter", data)
+	}
+}
